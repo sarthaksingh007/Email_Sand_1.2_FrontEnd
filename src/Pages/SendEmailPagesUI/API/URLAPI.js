@@ -1,4 +1,4 @@
 
-const URLAPI = 'http://localhost:5888'
+const URLAPI = 'https://emailbackend-95kx.onrender.com'
 
 export default URLAPI;
