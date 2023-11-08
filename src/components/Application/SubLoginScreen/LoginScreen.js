@@ -7,7 +7,7 @@ import ErrorMessage from "../../ErrorMessage";
 import { login } from "../../../Redux/actions/subuserActions";
 import MainScreen from "../../MainScreen";
 import "./LoginScreen.css";
-import headerLogo from "../../../assets/images/header-logo.png";
+
 
 function LoginScreen({ history }) {
   const [email, setEmail] = useState("");

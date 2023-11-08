@@ -49,7 +49,7 @@ const LandingPage = () => {
                     className="nav-link btn btn-sm btn-primary rounded ml-1 dash_logo"
                     href="/hub/Dashbord"
                   >
-                    Skip ->
+                
                   </a>
                 </li>
               </div>

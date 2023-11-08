@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import headerLogo from "../../assets/images/header-logo.png";
+
 
 function UpgradURPlanPart() {
   const [inactive, setInactive] = useState(false);

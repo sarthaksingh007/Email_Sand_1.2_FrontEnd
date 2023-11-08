@@ -15,7 +15,8 @@ const UserProfiles = ({}) => {
   const { userInfo } = userLogin;
   const [data, setData] = useState([]);
   const CreateMagazin = () => {
-    history.push("/hub/AddUserProfile");
+    // history.push("/hub/AddUserProfile");
+
   };
 
   const getData = async () => {
@@ -32,7 +33,7 @@ const UserProfiles = ({}) => {
   }, []);
   const clickHandler = (id) => {
     
-    history.push(`/hub/AddUserProfile/${id}`);
+    // history.push(`/hub/AddUserProfile/${id}`);
   };
   const deleteHandler = async (id) => {
     try {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import DashboardPart from "../components/Body/DashboardPart";
+
 
 export default function Dashboard({history}) {
 
@@ -20,7 +20,7 @@ export default function Dashboard({history}) {
         <i class="bi bi-geo-alt-fill"></i>
         <span> Home /</span>Dashboard
       </h3>
-      <DashboardPart />
+      {/* <DashboardPart /> */}
     </>
   );
 }
