@@ -1,6 +1,6 @@
 // import "../App.css";
 
-import SubSideMenu from "../components/SubSideMenu";
+import SubSideMenu from "../components/common/SubSideMenu";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,25 +15,26 @@ import Dashboard from "../Pages/Dashboard";
 
 
 import { useSelector } from "react-redux";
-import ProfileScreen from "../components/Application/ProfileScreen/SubProfileScreen";
-import PasswordChange from "../components/Application/ProfileScreen/PasswordChange";
-import Emailsend from "../Pages/SendEmailPagesUI/Componets/EmailSand";
-import DoaminCountry from "../Pages/SendEmailPagesUI/Componets/DoaminCountry";
-import UpgradURPlanPart from "../components/Body/UpgradURPlanPart";
-import AddDomain from "../Pages/SendEmailPagesUI/Pages/AddDomain";
-import EmailExtract from "../Pages/SendEmailPagesUI/Componets/EmailExtract"
-import ValidEmailsPart from "../Pages/SendEmailPagesUI/Componets/ValidEmailsPart";
+// import ProfileScreen from "../components/Application/ProfileScreen/SubProfileScreen";
+import ProfileScreen from "../user/ProfileScreen/SubProfileScreen";
+// import PasswordChange from "../components/Application/ProfileScreen/PasswordChange";
+import PasswordChange from "../user/ProfileScreen/PasswordChange";
+// import Emailsend from "../Pages/SendEmailPagesUI/Componets/EmailSand";
+import Emailsend from "../components/common/SendEmailPagesUI/Componets/EmailSand"
+// import DoaminCountry from "../Pages/SendEmailPagesUI/Componets/DoaminCountry";
+import DoaminCountry from "../components/common/SendEmailPagesUI/Componets/DoaminCountry"
+import UpgradURPlanPart from "../user/UpgradPlan/UpgradURPlanPart";
+// import AddDomain from "../Pages/SendEmailPagesUI/Pages/AddDomain";
+import AddDomain from "../components/common/SendEmailPagesUI/Pages/AddDomain"
+import EmailExtract from "../components/common/SendEmailPagesUI/Componets/EmailExtract"
+import ValidEmailsPart from "../components/common/SendEmailPagesUI/Componets/ValidEmailsPart"
 
 function UserHubrouters({ history }) {
   const [inactive, setInactive] = useState(false);
 
   const userLogin = useSelector((state) => state.userLogin);
-
-  // const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   console.log("users",userLogin);
-
-  // console.log(userInfo, "use");
   if (!userInfo) {
     history.push("/login");
     window.location.reload(false);

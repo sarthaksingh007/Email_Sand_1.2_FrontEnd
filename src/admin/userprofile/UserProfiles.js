@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import axios from "axios";
-import { APIURL } from "../../../Redux/APIURL";
-import { updateCheckbox1,updateCheckbox2,updateCheckbox3,updateCheckbox4 } from "../../../Redux/actions/subuserActions";
+import { APIURL } from "../../Redux/APIURL";
+import { updateCheckbox1,updateCheckbox2,updateCheckbox3,updateCheckbox4 } from "../../Redux/actions/subuserActions";
 const UserProfiles = ({}) => {
   const history = useHistory();
   const userLogin = useSelector((state) => state.userLogin);
@@ -15,7 +15,6 @@ const UserProfiles = ({}) => {
   const { userInfo } = userLogin;
   const [data, setData] = useState([]);
   const CreateMagazin = () => {
-    // history.push("/hub/AddUserProfile");
 
   };
 

@@ -1,28 +1,25 @@
 // import "../App.css";
-import SideMenu from "../components/SideMenu";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import {  useState } from "react";
+import SideMenu from "../components/common/SideMenu";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 // pages import
 import Dashboard from "../Pages/Dashboard";
-import UserProfile from "../Pages/Application/UserProfile";
-
-
+// import UserProfile from "../Pages/Application/UserProfile";
+import UserProfiles from "../admin/userprofile/UserProfiles";
 
 import { useSelector } from "react-redux";
 
-import ProfileScreen from "../components/Application/ProfileScreen/ProfileScreen";
-import PasswordChange from "../components/Application/ProfileScreen/PasswordChange";
-import Emailsend from "../Pages/SendEmailPagesUI/Componets/EmailSand";
-import UpgradURPlanPart from "../components/Body/UpgradURPlanPart";
-import AddDomain from "../Pages/SendEmailPagesUI/Pages/AddDomain";
-import DoaminCountry from "../Pages/SendEmailPagesUI/Componets/DoaminCountry";
-import EmailExtract from "../Pages/SendEmailPagesUI/Componets/EmailExtract";
-import ValidEmailsPart from "../Pages/SendEmailPagesUI/Componets/ValidEmailsPart";
+// import ProfileScreen from "../components/Application/ProfileScreen/ProfileScreen";
+import ProfileScreen from "../user/ProfileScreen/ProfileScreen";
+// import PasswordChange from "../components/Application/ProfileScreen/PasswordChange";
+import PasswordChange from "../user/ProfileScreen/PasswordChange";
+import Emailsend from "../components/common/SendEmailPagesUI/Componets/EmailSand";
+import DoaminCountry from "../components/common/SendEmailPagesUI/Componets/DoaminCountry";
+import UpgradURPlanPart from "../user/UpgradPlan/UpgradURPlanPart";
+import AddDomain from "../components/common/SendEmailPagesUI/Pages/AddDomain";
+import EmailExtract from "../components/common/SendEmailPagesUI/Componets/EmailExtract";
+import ValidEmailsPart from "../components/common/SendEmailPagesUI/Componets/ValidEmailsPart";
 function Hubrouters({ history }) {
   const [inactive, setInactive] = useState(false);
 
@@ -33,7 +30,6 @@ function Hubrouters({ history }) {
     history.push("/login");
     window.location.reload(false);
   }
-  
 
   return (
     <div className="App">
@@ -46,8 +42,6 @@ function Hubrouters({ history }) {
         />
 
         <div className={`containerall ${inactive ? "inactive" : ""}`}>
-          
-
           <Switch>
             <Route exact path="/hub/Dashbord" component={Dashboard} />
             <Route exact path="/hub/upplan" component={UpgradURPlanPart} />
@@ -55,7 +49,7 @@ function Hubrouters({ history }) {
             <Route exact path="/hub/upplan2" component={UpgradURPlanPart} />
             <Route exact path="/hub/upplan3" component={UpgradURPlanPart} />
             <Route exact path={"/hub/UserProfile"}>
-              <UserProfile />
+              <UserProfiles />
             </Route>
             <Route path={"/hub/PasswordChange"}>
               <PasswordChange />
@@ -70,7 +64,6 @@ function Hubrouters({ history }) {
             <Route path="/hub/DomainCountry" component={DoaminCountry} />
             <Route path="/hub/EmailExtract" component={EmailExtract} />
             <Route path="/hub/ValidEmail" component={ValidEmailsPart} />
-
           </Switch>
         </div>
       </Router>

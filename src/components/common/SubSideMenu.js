@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from "./MenuItem";
-import { logout } from "../Redux/actions/userActions";
-import "../Style/SideBar.css";
+import { logout } from "../../Redux/actions/userActions";
+import "../../Style/SideBar.css"
 import { useHistory } from "react-router";
 
 /**

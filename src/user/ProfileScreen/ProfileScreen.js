@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import MainScreen from "../../MainScreen";
-import "./ProfileScreen.css";
+import MainScreen from "../../components/common/MainScreen";
+// import "../ProfileScreen/ProfileScreen.css";
+import "./ProfileScreen.css"
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "../../../Redux/actions/userActions";
-import Loading from "../../Loading";
-import ErrorMessage from "../../ErrorMessage";
+import { updateProfile } from "../../Redux/actions/userActions";
+import Loading from "../../components/common/Loading";
+import ErrorMessage from "../../components/common/ErrorMessage";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");

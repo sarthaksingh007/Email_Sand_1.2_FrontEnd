@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MenuItem from "./MenuItem";
-import { logout } from "../Redux/actions/userActions";
-import "../Style/SideBar.css";
+import { logout } from "../../Redux/actions/userActions";
+import "../../Style/SideBar.css"
 import { useHistory } from "react-router";
 
 /**
@@ -172,26 +172,7 @@ const SideMenu = (props) => {
               </samp>
             </li>
           </a>
-          {/* <li>
-            <a className="menu-item">
-              <div className="menu-icon">
-                <i class="bi bi-speedometer2"></i>
-              </div>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <MenuItem
-            name={"Content"}
-            subMenus={[{ name: "Courses" }, { name: "Videos" }]}
-          />
-          <li>
-            <a className="menu-item">
-              <div className="menu-icon">
-                <i class="bi bi-vector-pen"></i>
-              </div>
-              <span>Design</span>
-            </a>
-          </li> */}
+          
         </ul>
       </div>
 

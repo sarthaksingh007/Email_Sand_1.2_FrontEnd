@@ -36,11 +36,6 @@ export default function Dashboard() {
   const [style, setStyle] = useState("bg-color2 ");
   const [zoomLevel, setZoomLevel] = useState(14); // start with 100% zoom level
 
-
-  // useEffect(() => {
-  //   const defaultFontSize = parseInt(getComputedStyle(document.documentElement).fontSize);
-  //   setZoomLevel(defaultFontSize);
-  // }, []);
   const handleZoomIn = () => {
     setZoomLevel(zoomLevel + 2); // increase zoom level by 25%
   };

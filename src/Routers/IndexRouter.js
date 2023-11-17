@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import AppRouter from "./AppRouter";
-import Home from "../Pages/SendEmailPagesUI/Pages/Home2";
+import Home from "../components/common/SendEmailPagesUI/Pages/Home2"
 // import Home from "../Pages/UserEnd/Home";
 import NotFound from "../Pages/NotFound";
 
@@ -16,11 +16,9 @@ const IndexRouter = () => {
       <Router>
         <Switch>
           <Route exact path={["/", "/Home", "/home"]} component={Home} />
-          {/* <Redirect to="/error404-Page-Not-Found" /> */}
 
           <AppRouter />
           
-          {/* <Route component={NotFound} /> */}
         </Switch>
       </Router>
     </>

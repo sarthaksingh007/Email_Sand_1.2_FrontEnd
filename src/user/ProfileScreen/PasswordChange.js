@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import MainScreen from "../../MainScreen";
-import "./ProfileScreen.css";
+// import MainScreen from "../../MainScreen";
+import MainScreen from "../../components/common/MainScreen";
+import "../ProfileScreen/ProfileScreen.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "../../../Redux/actions/subuserActions";
-import Loading from "../../Loading";
-import ErrorMessage from "../../ErrorMessage";
+// import { updateProfile } from "../../../Redux/actions/userActions";
+import { updateProfile } from "../../Redux/actions/userActions";
+// import Loading from "../../Loading";
+import Loading from "../../components/common/Loading";
+// import ErrorMessage from "../../ErrorMessage";
+import ErrorMessage from "../../components/common/ErrorMessage";
 
-const ProfileScreen = ({ location, history }) => {
+const PasswordChange = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pic, setPic] = useState();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [picMessage, setPicMessage] = useState();
 
   const dispatch = useDispatch();
@@ -18,8 +24,8 @@ const ProfileScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const subuserUpdate = useSelector((state) => state.subuserUpdate);
-  const { loading, error, success } = subuserUpdate;
+  const userUpdate = useSelector((state) => state.userUpdate);
+  const { loading, error, success } = userUpdate;
 
   useEffect(() => {
     if (!userInfo) {
@@ -58,11 +64,11 @@ const ProfileScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(updateProfile({ name, email, pic }));
+    dispatch(updateProfile({ name, email, password, pic }));
   };
 
   return (
-    <MainScreen title="EDIT PROFILE">
+    <MainScreen title="Change Password">
       <div>
         <Row className="profileContainer">
           <Col md={6}>
@@ -74,52 +80,32 @@ const ProfileScreen = ({ location, history }) => {
                 </ErrorMessage>
               )}
               {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-              <Form.Group controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
-              <Form.Group controlId="email">
-                <Form.Label>Email Address</Form.Label>
+              
+              
+              <Form.Group controlId="password">
+                <Form.Label>Password</Form.Label>
                 <Form.Control
                   className="p-1"
-                  type="email"
-                  placeholder="Enter Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="password"
+                  placeholder="Enter New Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 ></Form.Control>
               </Form.Group>
-              {picMessage && (
-                <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
-              )}
-              <div className="col-md-4 mb-5">
-                <label htmlFor="inputZip" className="form-label">
-                  Change Profile Picture
-                </label>
-                <input
-                  type="file"
-                  className="form-control p-1"
-                  aria-label="file example"
-                  onChange={(e) => postDetails(e.target.files[0])}
-                />
-              </div>
-              <Button type="submit" variant="primary" className="p-1">
+              <Form.Group controlId="confirmPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  className="p-1"
+                  type="password"
+                  placeholder="Confirm Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                ></Form.Control>
+              </Form.Group>{" "}
+              <Button type="submit" varient="primary" className="p-1 mt-5">
                 Update
               </Button>
             </Form>
-          </Col>
-          <Col
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img src={pic} alt={name} className="profilePic" />
           </Col>
         </Row>
       </div>
@@ -127,4 +113,4 @@ const ProfileScreen = ({ location, history }) => {
   );
 };
 
-export default ProfileScreen;
+export default PasswordChange;
