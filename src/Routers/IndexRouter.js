@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 import AppRouter from "./AppRouter";
 import Home from "../components/common/SendEmailPagesUI/Pages/Home2"
