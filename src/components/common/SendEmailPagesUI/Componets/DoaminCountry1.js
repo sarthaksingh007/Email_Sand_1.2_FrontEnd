@@ -18,15 +18,13 @@ function DoaminCountry() {
     if (!file) return;
     const formData = new FormData();
     formData.append("domainList", file);
-    const response = await fetch(`${URLAPI}/api/domain/domainCountry`, {
+    const response = await fetch(`${URLAPI}/domains`, {
       method: "POST",
       body: formData,
     });
     const data = await response.json();
-    console.log(data);
     setResults(data);
     setFilteredResults(data);
-    console.log(filteredResults);
   };
 
   const handleFilterChange = (e) => {
@@ -81,7 +79,7 @@ function DoaminCountry() {
 
         <hr />
 
-        {filteredResults.length >= 0 && (
+        {filteredResults.length <= 0 && (
           <div>
             <div class="container">
               <div class="row">
@@ -126,17 +124,14 @@ function DoaminCountry() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredResults.map(
+                  {results.reverse().map(
                     ({ domain, country }, i) =>
-                 
-                      // country === selectedRegion && (
-                        
+                      country === selectedRegion && (
                         <tr key={domain}>
-                          
                           <th scope="row">{i + 1}</th>
 
                           <td>{domain}</td>
-                          <td>{country}</td>
+                          {/* <td>{country}</td> */}
                           <td
                             style={{
                               width: "20px",
@@ -180,8 +175,7 @@ function DoaminCountry() {
                           </td>
                         </tr>
                       )
-                  // )
-                  }
+                  )}
                 </tbody>
               </table>
             </div>

@@ -26,6 +26,7 @@ export const menuItems = [
     iconClassName: "bi bi-briefcase",
     subMenus: [
       { name: "Add Domain", to: "/user/upplan" },
+      // { name: "Stepper", to: "/user/stepper" },
       { name: "Domain Country", to: "/user/upplan1" },
       { name: "E-Mail Extract", to: "/user/upplan2" },
       { name: "E-Mail Verify", to: "/user/upplan3" },

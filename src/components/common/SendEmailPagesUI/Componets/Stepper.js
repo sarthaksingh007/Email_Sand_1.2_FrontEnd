@@ -12,11 +12,11 @@ import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import SendIcon from '@mui/icons-material/Send';
 import PublicIcon from '@mui/icons-material/Public';
 import { styled } from '@mui/material/styles';
-import AddDomain from '../../Pages/Home';
-import DoaminCountry from '../DoaminCountry';
-import EmailExtract from '../EmailExtract';
-import EmailSand from '../EmailSand';
-import EmailValidate from '../ValidEmailsPart';
+import AddDomain from './Domain';
+import DoaminCountry from './DoaminCountry';
+import EmailExtract from './EmailExtract';
+import EmailSand from './EmailSand';
+import EmailValidate from './ValidEmailsPart';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
@@ -56,6 +56,7 @@ function ColorlibStepIcon(props) {
   );
 }
 
+
 ColorlibStepIcon.propTypes = {
   /**
    * Whether this step is active.
@@ -93,12 +94,13 @@ const stepsRender = [
   {
     label: 'Step 5',
     content: <EmailSand />,
-  },
+  }
 ];
 
 const steps = ['Add Domain', 'Domain Country Name', 'Extract Emails', 'Email Validate', 'Send Email'];
 
 export default function HorizontalLinearStepper() {
+  
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -146,7 +148,7 @@ export default function HorizontalLinearStepper() {
 
   return (
     <Box>
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr auto auto',marginY:"20px",marginX:"40px"}}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr auto auto',marginY:"20px !important"}}>
         <Button
         variant="contained"
           color="inherit"
@@ -156,6 +158,7 @@ export default function HorizontalLinearStepper() {
           sx={{
             gridColumn: '1',
             justifySelf: 'left',
+            padding:"2px !important",
           }}
         >
           Back
@@ -166,16 +169,16 @@ export default function HorizontalLinearStepper() {
           </Button>
         )}
         {activeStep !== steps.length - 1 ? (
-          <Button onClick={handleNext} sx={{ gridColumn: '3' }} variant="contained" endIcon={<SendIcon />}>
+          <Button onClick={handleNext} sx={{ gridColumn: '3',marginX:"10px !important",padding:"2px !important", }} variant="contained" endIcon={<SendIcon />}>
             Next
           </Button>
         ) : (
-          <Button onClick={handleNext} sx={{ gridColumn: '3' }} disabled>
+          <Button onClick={handleNext} sx={{ gridColumn: '3',padding:"2px !important", }} disabled>
             Next
           </Button>
         )}
       </Box>
-      <Stepper activeStep={activeStep} sx={{ marginX: '200px' ,marginY:"15px"}}>
+      <Stepper activeStep={activeStep} sx={{ marginX: '20px !important' ,marginY:"20px !important"}}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};

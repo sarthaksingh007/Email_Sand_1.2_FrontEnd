@@ -15,13 +15,12 @@ function EmailExtract() {
     const formData = new FormData();
     formData.append("domainList", file);
 
-    const response = await fetch(`${URLAPI}/api/domain/extractEmail`, {
+    const response = await fetch(`${URLAPI}/extract-emails`, {
       method: "POST",
       body: formData,
     });
     const data = await response.json();
     setEmails(data);
-    console.log(data);
   };
 
   return (

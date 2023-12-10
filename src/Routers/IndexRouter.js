@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import AppRouter from "./AppRouter";
-import Home from "../components/common/SendEmailPagesUI/Pages/Home2"
+import Home from "../components/common/SendEmailPagesUI/Componets/Nav.js"
 // import Home from "../Pages/UserEnd/Home";
 import NotFound from "../Pages/NotFound";
 

@@ -6,24 +6,22 @@ import URLAPI from "../API/URLAPI";
 function ValidEmailsPart() {
   const [response, setResponse] = useState(null);
   const history = useHistory();
-  const [emailList,setEmailList]=useState(null);
-
   const handleFileUpload = (event) => {
-    event.preventDefault();
+    const file = event.target.files[0];
     const formData = new FormData();
-    formData.append("emailList", emailList);
+    formData.append("emailList", file);
     // const [, domain] = response.split("@");
     // console.log(domain)
 
     axios
-      .post(`${URLAPI}/api/domain/validateEmail`, formData, {
+      .post(`${URLAPI}/validate-emails`, formData, {
         headers: {
-          "Content-Type": undefined,
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
         setResponse(response.data);
-        console.log(response);
+        // console.log(response);
         // console.log("dgjvnfd")
         // window.location.reload(false);
       })
@@ -52,10 +50,11 @@ function ValidEmailsPart() {
               type="file"
               name="emailList"
               id="emailList"
-              onChange={(e) => setEmailList(e.target.files[0])}
+              onChange={handleFileUpload}
+              // onChange={(e) => setEmailList(e.target.files[0])}
             />
 
-            <button className="btn btn-primary p-1" onClick={handleFileUpload} >Validate Your Email</button>
+            <button className="btn btn-primary p-1">Validate Your Email</button>
             {/* <button onClick={EmailSand} className="btn btn-primary">Next</button> */}
           </div>
         </div>
@@ -114,7 +113,7 @@ function ValidEmailsPart() {
                   <tr>
                     <th scope="row"> {i + 1}</th>
 
-                    <td>Domain</td>
+                    <td>Donain</td>
                     <td>{email}</td>
                     <td>
                       <button type="button" class="btn btn-danger">
